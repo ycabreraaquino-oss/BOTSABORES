@@ -1,0 +1,11 @@
+name: Recordatorio ventana 24h
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar al endpoint
+        run: curl -sf "https://inventario-hummus.vercel.app/api/cron-recordar-ventana?secret=${{ secrets.CRON_SECRET }}"
