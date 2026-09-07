@@ -1,0 +1,11 @@
+name: Chequeo suscripción WhatsApp
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar al endpoint
+        run: curl -sf -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "https://inventario-hummus.vercel.app/api/cron-check-whatsapp"
