@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Llamar al endpoint
-        run: curl -sf -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "https://inventario-hummus.vercel.app/api/cron-check-whatsapp"
+        run: |
+          curl -sf -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "https://inventario-hummus.vercel.app/api/cron-check-whatsapp"
