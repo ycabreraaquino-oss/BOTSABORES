@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Llamar al endpoint
-        run: curl -sf "https://inventario-hummus.vercel.app/api/cron-recordar-ventana?secret=${{ secrets.CRON_SECRET }}"
+        run: curl -sf -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "https://inventario-hummus.vercel.app/api/cron-recordar-ventana"
